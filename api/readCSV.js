@@ -37,12 +37,7 @@ function getBookWithISBN(id){
           }
     })
      console.log("author",author)
-    // console.log("id",id)
-    // if(author){
-    //   return author
-    // }else{
-    //   return "Books not found with this ISBN"
-    // }
+   
   })
   .on("error", function (error) {
     console.log(error.message);
@@ -68,12 +63,7 @@ function getMagazineWithISBN(id){
           }
     })
      console.log("author",author)
-    // console.log("id",id)
-    // if(author){
-    //   return author
-    // }else{
-    //   return "magazines not found with this ISBN"
-    // }
+   
   })
   .on("error", function (error) {
     console.log(error.message);
@@ -98,12 +88,7 @@ function getBooksWithEmail(id){
           }
     })
      console.log("author",bks)
-    // console.log("id",id)
-    // if(author){
-    //   return author
-    // }else{
-    //   return "Books not found with this ISBN"
-    // }
+   
   })
   .on("error", function (error) {
     console.log(error.message);
@@ -128,19 +113,14 @@ function getmagazinesWithEmail(id){
           }
     })
      console.log("author",bks)
-    // console.log("id",id)
-    // if(author){
-    //   return author
-    // }else{
-    //   return "Books not found with this ISBN"
-    // }
+   
   })
   .on("error", function (error) {
     console.log(error.message);
   });
 }
 
-// readFile("authors")
+// readFile("books")
 // getBookWithISBN("1215-4545-5895");
 // getMagazineWithISBN("2365-8745-7854")
 // getBooksWithEmail("null-walter@echocat.org")
@@ -148,3 +128,4 @@ function getmagazinesWithEmail(id){
 
 
 
+// module.exports = readFile
