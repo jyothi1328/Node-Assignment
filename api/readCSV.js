@@ -28,6 +28,36 @@ readCSVFile.readFiles = async function(id){
     return result
 }
 
+readCSVFile.getBody = async function(result){
+
+  // log.info("s3Url :::::::",result.s3Url)
+  let tableHeaders
+
+  let columns = ``;
+  let overAllTable = ``;
+
+  
+    tableHeaders = `<div style="padding:20px">` + "<b>Orders</b><br><br>"+`<table border="1" cellpadding="3px" cellspacing="0" bordercolor="#rrr">`
+      + `<tr style="background-color:#ccebff">`
+      + `<td style="text-align:center"><b>  </b></td>`
+      + `<td style="text-align:center"><b>Count</b></td>`
+      + `<td style="text-align:center"><b>Qt (Tons)</b></td>`
+      + `<td style="text-align:center"><b>Values (Rs.)</b></td>`  
+      + `</tr>`
+      + "COLUMNS" + "</table><br>"+`</div>`
+    for (const element of result) {
+      columns += `<tr>
+      <td style="text-align:center">${element.productName}</td>
+      <td style="text-align:left">${element.count}</td>
+      <td style="text-align:center">${element.quantity}</td>
+      <td style="text-align:right">${element.value}</td>
+      </tr>`;
+    }
+  
+  overAllTable = tableHeaders.replace('COLUMNS', columns);
+  return overAllTable
+}
+
 module.exports = readCSVFile
 
 /**Function for reading csv files */

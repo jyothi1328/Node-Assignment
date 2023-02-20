@@ -12,10 +12,12 @@ app.get('/:id', (req, res) => {
 })
 
 app.get('/', async(req, res) => {
-  let red = await readFile.readFiles()
-  // .then((data)=> data).catch("catch").then(data => data);
-  console.log("led",red)
-    res.send('<ul>' + JSON.stringify(red[0]) + '</ul>')
+  let red = await readFile.readFiles();
+  let ordersBody = await readFile.getBody(red);
+
+
+  let data = `<b> LIST OF AUTHORS </b> </br> ${ordersBody} `
+    res.send(data)
 //   res.send('Hello World!')
 })
 
