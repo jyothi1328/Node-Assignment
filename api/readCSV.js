@@ -1,5 +1,34 @@
 const fs = require('fs')
 const { parse } = require("csv-parse");
+const { default: axios } = require('axios')
+
+
+const readCSVFile = {}
+/**Function for reading csv files */
+readCSVFile.readFiles = async function(id){
+  let data = await axios.get("https://raw.githubusercontent.com/echocat/nodejs-kata-1/master/data/authors.csv");
+    // console.log(JSON.stringify(data))
+    console.log(data.data,typeof(data.data));
+    data = data.data
+    // data.split();
+    var lines=data.split("\n");
+    // console.log(lines[0]);
+
+    var result = [];
+    var headers=lines[0].split(";");
+    for(var i=1;i<lines.length-1;i++){  
+        var obj = {};
+        var currentline=lines[i].split(";");  
+        for(var j=0;j<headers.length;j++){
+            obj[headers[j]] = currentline[j];
+        }  
+        result.push(obj);  
+    }
+    console.log(result);
+    return result
+}
+
+module.exports = readCSVFile
 
 /**Function for reading csv files */
 function readFile(id){
